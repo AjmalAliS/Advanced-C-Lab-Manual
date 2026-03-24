@@ -216,28 +216,33 @@ Algorithm:
 Program:
 
 ```
-#include<stdio.h> int main()
-{
-int n,i,j,min; scanf("%d",&n);
-int len=n*2-1; for (i=0;i<len;i++)
-{
-for (j=0;j<len;j++)
-{
-min=i<j?i:j;
-min=min<len-i-1?min:len-1-i; min=min<len-j-1?min:len-1-j; printf("%d ",n-min);
-}
-printf("\n");
-}
-return 0;
+#include <stdio.h>
+
+void printPattern(int n) {
+    int size = 2 * n - 1;
+    for (int i = 0; i < size; i++) 
+    {
+
+        for (int j = 0; j < size; j++) 
+        {
+            int value = n - (i < j ? (i < size - j - 1 ? i : size - j - 1) : (j < size - i - 1 ? j : size - i - 1));
+            printf("%d ", value);
+        }
+        printf("\n");
+    }
 }
 
+int main() {
+    int n;
+    scanf("%d", &n);
+    printPattern(n);
+    return 0;
+}
 ```
 
+### Output:
 
-
-## Output:
-
-<img width="747" height="239" alt="image" src="https://github.com/user-attachments/assets/9d58346d-cb5d-47b7-a80b-0ae6f4108aca" />
+<img width="604" height="793" alt="image" src="https://github.com/user-attachments/assets/ba897451-6d07-4c74-b035-a3254178f0df" />
 
 
 
@@ -265,11 +270,10 @@ o	Call the square() function and display the result.
 
 Program:
 
-```
+``` 
 #include <stdio.h>
 void square();
 int main(){
-    
     square();
     return 0;
 }
@@ -282,10 +286,10 @@ void square(){
 
 ```
 
+### Output:
 
-## Output:
+<img width="913" height="286" alt="image" src="https://github.com/user-attachments/assets/abef7db2-2c2d-4f50-8987-daeb512ec7c3" />
 
-![Uploading image.png…]()
 
 Result:
 Thus, the program is verified successfully
