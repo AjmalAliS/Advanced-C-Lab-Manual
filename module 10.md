@@ -1,4 +1,5 @@
 EXP NO:16 C PROGRAM TO SEARCH A GIVEN ELEMENT IN THE GIVEN LINKED LIST.
+
 Aim:
 To write a C program to search a given element in the given linked list.
 
@@ -10,11 +11,43 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node{
+struct Node *next; char data;
+}*head;
+void search(char data)
+{
+struct Node *ptr; char item=data; int i=0,flag;
+ptr = head; if(ptr == NULL)
+{
+printf("Empty List\n");
+}
+else
+{
+while (ptr!=NULL)
+{
+if(ptr->data == item)
+{
+printf("item %c found at location %d ",item,i+1); flag=0;
+}
+i++;
+ptr = ptr -> next;
+}
+if(flag!=0)
+{
+printf("Item not found\n");
+}
+}
 
-Output:
+}
+ 
 
-//paste your output here
+```
+
+## Output:
+
+<img width="459" height="321" alt="image" src="https://github.com/user-attachments/assets/c3ec4eaa-0c4f-4902-a27d-46c5d1803137" />
+
 
 
 
@@ -24,6 +57,7 @@ Thus, the program to search a given element in the given linked list is verified
 
  
 EXP NO:17  PROGRAM TO INSERT A NODE IN A LINKED LIST.
+
 Aim:
 To write a C program to insert a node in a linked list.
 Algorithm:
@@ -34,11 +68,31 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node{ char data;
+struct Node *next;
+}*head;
 
-Output:
+void insert(char data)
+{
+struct Node *n=(struct Node*)malloc(sizeof(struct Node)); struct Node *temp;
+if(head==NULL)
+{
+head=n;
+n->data=data; n->next=NULL; temp=head; return;
+}
+while(temp->next!=NULL)
+{
+temp=temp->next;
+}
+n->data=data; n->next=NULL; temp->next=n;
+}
 
-//paste your output here
+```
+
+## Output:
+
+<img width="304" height="276" alt="image" src="https://github.com/user-attachments/assets/86b9c0ed-2d3f-4aa8-91fa-fa4765b16cdb" />
 
  
 Result:
@@ -47,6 +101,7 @@ Thus, the program to insert a node in a linked list is verified successfully.
 
  
 EXP NO:18 C PROGRAM TO TRAVERSE A DOUBLY LINKED LIST
+
 Aim:
 To write a C program to traverse a doubly linked list.
 
@@ -58,11 +113,27 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node
+{
+struct Node *prev; struct Node *next; int data;
+}*head;
+void display()
+{
+struct Node *temp; temp=head; while(temp!=0)
+{
+printf("%d ",temp->data); temp=temp->next;
+}
 
-Output:
 
-//paste your output here
+
+}
+
+```
+
+## Output:
+
+<img width="254" height="309" alt="image" src="https://github.com/user-attachments/assets/94a7b1d8-8ba4-4fa7-852a-f6c598d5db5f" />
 
 
 Result:
@@ -71,6 +142,7 @@ Thus, the program to traverse a doubly linked list is verified successfully.
 
 
 EXP NO:19 C PROGRAM TO INSERT AN ELEMENT IN DOUBLY LINKED LIST
+
 Aim:
 To write a C program to insert an element in doubly linked list
 
@@ -83,11 +155,39 @@ Algorithm:
  
 Program:
 
-//type your code here
+```
+struct Node
+{
+struct Node *prev; struct Node *next; float data;
+}*head;
+void insert(float data)
+{
 
-Output:
+struct Node *n=(struct Node*)malloc(sizeof(struct Node)); struct Node *temp;
+if(head==NULL)
+{
+head=n;
+n->data=data; n->next=NULL; n->prev=NULL; temp=head;
+}
+else
+{
+while(temp->next!=NULL)
+{
+temp=temp->next;
+}
+n->data=data; n->next=NULL; n->prev=temp; temp->next=n;
+}
 
-//paste your output here
+
+}
+ 
+
+```
+
+## Output:
+
+<img width="309" height="414" alt="image" src="https://github.com/user-attachments/assets/e399d1c8-028a-46d7-a54b-e97220fc7587" />
+
 
 
 Result:
@@ -97,8 +197,6 @@ Thus, the program to insert an element in doubly linked list is verified success
 
 
 EXP NO:20 C FUNCTION TO DELETE A GIVEN ELEMENT IN THE GIVEN LINKED LIST
-
-
 
 
 Aim:
@@ -125,11 +223,36 @@ o	If the element is not found in any node, print a message indicating the elemen
 
 Program:
 
-//type your code here
+```
+struct Node{
+    char data; 
+    struct Node *next;
+}*head;
+void delete()
+{
+    if(head==NULL){
+        printf("List is empty\n");
+        return;
+    }
+    else if(head->next==NULL){
+        head=NULL;
+        free(head);
+        printf("Node deleted from the begining ...\n");
+    }
+    else{
+        struct Node *ptr;
+        ptr=head;
+        head=head->next;
+        free(ptr);
+        printf("Node deleted from the begining ...\n");
+    }
+}
 
-Output:
+```
 
-//paste your output here
+## Output:
+
+<img width="749" height="493" alt="image" src="https://github.com/user-attachments/assets/661253e0-933c-466d-966b-d21cf6aeced5" />
 
 
 
